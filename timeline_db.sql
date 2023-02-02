@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-01-2023 a las 17:36:01
+-- Tiempo de generación: 30-01-2023 a las 23:31:59
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -78,7 +78,7 @@ ALTER TABLE `cartas`
 -- AUTO_INCREMENT de la tabla `mazos`
 --
 ALTER TABLE `mazos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

@@ -16,25 +16,33 @@
             <button type="button" onclick="irCrear()" class="btn btn-outline-light">CREAR</button>
             <br />
             <br />
-            <button type="button" class="btn btn-outline-light">MODIFICAR</button>
+            <button type="button" onclick="irModificar()" class="btn btn-outline-light">MODIFICAR</button>
             <br />
             <br />
-            <button type="button" class="btn btn-outline-light">ELIMINAR</button>
+            <button type="button" onclick="irEliminar()" class="btn btn-outline-light">ELIMINAR</button>
+            <br><br>
+            <button type="button" onclick="irAtras()" class="btn btn-outline-light">ATRAS</button>
+
         </form>
     </center>
     <script type="text/javascript">
         function irCrear() {
-            document.getElementById("mainform").action = "cartas/crear_carta.php";
+            document.getElementById("mainform").action = "cartas_opciones/crear_carta.php";
             document.getElementById("mainform").submit();
         }
 
         function irModificar() {
-            document.getElementById("mainform").action = "cartas/modificar_carta.php";
+            document.getElementById("mainform").action = "cartas_opciones/modificar_carta.php";
             document.getElementById("mainform").submit();
         }
 
         function irEliminar() {
-            document.getElementById("mainform").action = "cartas/eliminar_carta.php";
+            document.getElementById("mainform").action = "cartas_opciones/eliminar_carta.php";
+            document.getElementById("mainform").submit();
+        }
+
+        function irAtras() {
+            document.getElementById("mainform").action = "../admin.php";
             document.getElementById("mainform").submit();
         }
     </script>

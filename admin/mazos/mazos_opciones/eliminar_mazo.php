@@ -3,12 +3,12 @@
 <?php
 require_once("dbutilsmazos.php");
 $conDb = conectarDB();
-$resultados = getAllMazos($conDb);
 if (isset($_POST['botonEliminar'])) {
     if (isset($_POST['mazoEliminar']) && $_POST['mazoEliminar'] != null) {
         $borrado = borrarMazo($conDb, $_POST['mazoEliminar']);
     }
 }
+$resultados = getAllMazos($conDb);
 ?>
 
 <head>

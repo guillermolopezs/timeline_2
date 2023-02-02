@@ -17,6 +17,9 @@
             <br />
             <br />
             <button type="button" onclick="irCartas()" class="btn btn-outline-light">CARTAS</button>
+            <br><br>
+            <button type="button" onclick="irAtras()" class="btn btn-outline-light">ATRAS</button>
+
         </form>
     </center>
     <script type="text/javascript">
@@ -27,6 +30,11 @@
 
         function irCartas() {
             document.getElementById("mainform").action = "cartas/index_cartas.php";
+            document.getElementById("mainform").submit();
+        }
+
+        function irAtras() {
+            document.getElementById("mainform").action = "../index.php";
             document.getElementById("mainform").submit();
         }
     </script>

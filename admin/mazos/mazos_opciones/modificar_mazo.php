@@ -3,7 +3,7 @@
 <?php
 require_once("dbutilsmazos.php");
 $conDb = conectarDB();
-$resultados = getAllMazos($conDb);
+
 $faltanDatos = false;
 if (isset($_POST['botonModificar'])) {
     if (isset($_POST['mazoModificar']) && $_POST['mazoModificar'] != null) {
@@ -22,6 +22,7 @@ if (isset($_POST['botonModificar'])) {
         }
     }
 }
+$resultados = getAllMazos($conDb);
 ?>
 
 <head>

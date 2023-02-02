@@ -20,6 +20,8 @@
             <br />
             <br />
             <button type="button" onclick="irEliminar()" class="btn btn-outline-light">ELIMINAR</button>
+            <br><br>
+            <button type="button" onclick="irAtras()" class="btn btn-outline-light">ATRAS</button>
         </form>
     </center>
     <script type="text/javascript">
@@ -35,6 +37,11 @@
 
         function irEliminar() {
             document.getElementById("mainform").action = "mazos_opciones/eliminar_mazo.php";
+            document.getElementById("mainform").submit();
+        }
+
+        function irAtras() {
+            document.getElementById("mainform").action = "../admin.php";
             document.getElementById("mainform").submit();
         }
     </script>
