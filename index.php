@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require_once("dbutils.php");
+$conDb = conectarDB();
+$resultados = getAllMazos($conDb);
+?>
 
 <head>
   <meta charset="UTF-8" />
@@ -16,11 +21,31 @@
       <button onclick="irAdmin()" type="button" id="botonAdmin" class="btn btn-outline-light">
         ADMIN
       </button>
+      <br><br>
+      <input type="number" min=0 name="puntuacion" placeholder="Introduce la puntuación" />
+      <br><br>
+      <select class="select" name="mazoElegido" default="null">
+        <option hidden selected value="null">Elige un mazo</option>
+        <?php
+        foreach ($resultados as $mazo) {
+          echo "<option value='" . $mazo['ID'] . "'>" . $mazo['NOMBRE'] . "</option>";
+        }
+        ?>
+      </select>
+      <br><br>
+      <button onclick="irRanking()" type="button" id="botonJugar" class="btn btn-outline-light">
+        JUGAR
+      </button>
     </form>
   </center>
   <script type="text/javascript">
     function irAdmin() {
       document.getElementById("mainform").action = "admin/admin.php";
+      document.getElementById("mainform").submit();
+    }
+
+    function irRanking() {
+      document.getElementById("mainform").action = "ranking/ranking.php";
       document.getElementById("mainform").submit();
     }
   </script>
