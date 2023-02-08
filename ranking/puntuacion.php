@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require_once("dbutilsmazos.php");
-$conDb = conectarDB();
-if (isset($_POST['botonEliminar'])) {
-    if (isset($_POST['mazoEliminar']) && $_POST['mazoEliminar'] != null) {
-        $borrado = borrarMazo($conDb, $_POST['mazoEliminar']);
-    }
-}
-$resultados = getAllMazos($conDb);
+session_start();
+$_SESSION['mazo'] = $_POST['mazoElegido'];
 ?>
 
 <head>
@@ -56,76 +50,36 @@ $resultados = getAllMazos($conDb);
         .windows .dreams {
             -webkit-text-stroke: 4px #f008b7;
         }
-
-        #errorDatos {
-            padding: 20px;
-            background-color: #f44336;
-            /* Red */
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        #cartaCreada {
-            padding: 20px;
-            background-color: #4dc959;
-            /* Red */
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .closebtn {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .closebtn:hover {
-            color: black;
-        }
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <title>BORRAR MAZO</title>
+    <title>JUEGO</title>
 </head>
 
 <body style="background-color: #212121">
-    <?php
-    if (isset($borrado) && isset($_POST['botonEliminar'])) {
-        echo '<center><div id="mazoEliminado" class="alert"><span class="closebtn" onclick="this.parentElement.style.display=`none`;">&times;</span>Mazo eliminado</div></center>';
-    }
-    ?>
+    <br /><br />
     <center>
-        <br><br>
         <div id="wrapper">
             <h1 class="chrome">TIMELINE</h1>
-            <h3 class="dreams">Eliminar</h3>
+            <h3 class="dreams">Puntuación</h3>
+            <br>
+            <form method="post" id="mainform">
+                <br><br>
+                <input type="number" min=0 name="puntuacion" placeholder="Introduce la puntuación" />
+                <br><br>
+                <button onclick="irRanking()" type="button" id="botonJugar" class="btn btn-outline-light">
+                    JUGAR
+                </button>
+
+            </form>
         </div>
-        <br><br>
-        <form method="post" id="borrarForm" action="eliminar_mazo.php">
-            <select class="select" name="mazoEliminar" default="null">
-                <option hidden selected value="null">Elige un mazo</option>
-                <?php
-                foreach ($resultados as $mazo) {
-                    echo "<option value='" . $mazo['ID'] . "'>" . $mazo['NOMBRE'] . "</option>";
-                }
-                ?>
-            </select>
-            <br><br>
-            <button name="botonEliminar" class="btn btn-outline-light" value="set">ELIMINAR</button><br><br>
-            <button name="botonAtras" onclick="volverAtras()" class="btn btn-outline-light" value="set">ATRAS</button>
-        </form>
     </center>
     <script type="text/javascript">
-        function volverAtras() {
-            document.getElementById("borrarForm").action = "../index_mazos.php";
-            document.getElementById("borrarForm").submit();
+        function irRanking() {
+            document.getElementById("mainform").action = "ranking.php";
+            document.getElementById("mainform").submit();
         }
     </script>
 </body>
