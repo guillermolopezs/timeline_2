@@ -106,7 +106,7 @@ $resultados = getAllMazos($conDb);
             margin-bottom: 15px;
         }
 
-        #cartaCreada {
+        #cartaModificada {
             padding: 20px;
             background-color: #4dc959;
             /* Red */
@@ -142,7 +142,7 @@ $resultados = getAllMazos($conDb);
     if ($faltanDatos == true) {
         echo '<center><div id="errorDatos" class="alert"><span class="closebtn" onclick="this.parentElement.style.display=`none`;">&times;</span>Faltan campos</div></center>';
     } elseif (isset($modificada) && isset($_POST['botonModificar'])) {
-        echo '<center><div id="mazoModificado" class="alert"><span class="closebtn" onclick="this.parentElement.style.display=`none`;">&times;</span>Carta modificada</div></center>';
+        echo '<center><div id="cartaModificada" class="alert"><span class="closebtn" onclick="this.parentElement.style.display=`none`;">&times;</span>Carta modificada</div></center>';
     }
     ?>
     <center>

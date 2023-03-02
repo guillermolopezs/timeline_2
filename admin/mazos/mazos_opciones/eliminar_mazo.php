@@ -65,7 +65,7 @@ $resultados = getAllMazos($conDb);
             margin-bottom: 15px;
         }
 
-        #cartaCreada {
+        #mazoEliminado {
             padding: 20px;
             background-color: #4dc959;
             /* Red */

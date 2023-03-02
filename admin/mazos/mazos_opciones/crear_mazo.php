@@ -71,7 +71,7 @@ if (isset($_POST['botonCrear'])) {
             margin-bottom: 15px;
         }
 
-        #cartaCreada {
+        #mazoCreado {
             padding: 20px;
             background-color: #4dc959;
             /* Red */
